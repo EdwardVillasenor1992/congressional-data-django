@@ -1,0 +1,82 @@
+[
+    {
+        "donor": "a",
+        "sum": 0
+    },
+    {
+        "donor": "b",
+        "sum": 1
+    },
+    {
+        "donor": "c",
+        "sum": 2
+    },
+    {
+        "donor": "d",
+        "sum": 3
+    },
+    {
+        "donor": "e",
+        "sum": 4
+    },
+    {
+        "donor": "f",
+        "sum": 5
+    },
+    {
+        "donor": "g",
+        "sum": 6
+    },
+    {
+        "donor": "h",
+        "sum": 7
+    },
+    {
+        "donor": "i",
+        "sum": 8
+    },
+    {
+        "donor": "j",
+        "sum": 9
+    },
+    {
+        "donor": "k",
+        "sum": 10
+    },
+    {
+        "donor": "l",
+        "sum": 11
+    },
+    {
+        "donor": "m",
+        "sum": 12
+    },
+    {
+        "donor": "n",
+        "sum": 13
+    },
+    {
+        "donor": "o",
+        "sum": 14
+    },
+    {
+        "donor": "p",
+        "sum": 15
+    },
+    {
+        "donor": "q",
+        "sum": 16
+    },
+    {
+        "donor": "r",
+        "sum": 17
+    },
+    {
+        "donor": "s",
+        "sum": 18
+    },
+    {
+        "donor": "t",
+        "sum": 19
+    }
+]

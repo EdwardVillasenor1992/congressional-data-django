@@ -1,0 +1,55 @@
+{
+  "name": "congressional_data",
+  "version": "0.0.1",
+  "description": "congressional data",
+  "main": "index.js",
+  "scripts": {
+    "start_web:dev": "webpack-dev-server --config ./webpack.dev.js --env.dev",
+    "start": "API_ENDPOINT=$API_ENDPOINT NODE_ENV=prod node server.js",
+    "build:dev": "node_modules/webpack/bin/webpack.js --config ./webpack.dev.js --output-filename ./bundle.js",
+    "lint": "./node_modules/.bin/eslint $(git ls-files '*.js')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfbrigade/datasci-congressional-data.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfbrigade/datasci-congressional-data/issues"
+  },
+  "homepage": "https://github.com/sfbrigade/datasci-congressional-data#readme",
+  "devDependencies": {
+    "compression-webpack-plugin": "^1.1.3",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "webpack-dev-server": "^2.9.3"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "css-loader": "^0.28.7",
+    "d3-axis": "^1.0.8",
+    "d3-scale": "^2.0.0",
+    "d3-selection": "^1.3.0",
+    "d3-shape": "^1.2.0",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^16.0.0",
+    "react-spinkit": "^3.0.0",
+    "style-loader": "^0.19.0",
+    "superagent": "^3.8.0",
+    "webpack": "^3.8.1",
+    "webpack-merge": "^4.1.1"
+  }
+}
