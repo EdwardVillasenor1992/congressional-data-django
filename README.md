@@ -2,6 +2,9 @@
 
 Welcome to the Congressional Data Django README file. This is a living breathing document so don't be shy and feel free to contribute documentation!
 
+- [Production Environment](https://campaignfinance.azurewebsites.net)
+- [Development Environment](https://campaignfinance-development.azurewebsites.net/)
+
 **Who are you?**
 
 - [Developer](#getting-started)
@@ -199,6 +202,10 @@ Follow the steps output by this command.
 
 
 ## DevOps
+
+### Azure Administration
+
+[Azure Portal](https://portal.azure.com/)
 
 ### CI with Travis
 

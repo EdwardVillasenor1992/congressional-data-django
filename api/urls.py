@@ -8,7 +8,7 @@ router = DefaultRouter()
 router.register(r'candidate_contributions', views.CandidateContributionsViewSet, base_name='candidate_contributions')
 
 urlpatterns = [
-    path('models/', include(router.urls)),
+    path('models', include(router.urls)),
     path('funding/sources/<str:candidate_name>/<int:count>',
          views.funding_sources, name='funding_sources'),
 ]
