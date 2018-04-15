@@ -1,4 +1,4 @@
-# Congressional Data Django
+# Congressional Data Django [![Build Status](https://travis-ci.org/sfbrigade/congressional-data-django.svg?branch=master)](https://travis-ci.org/sfbrigade/congressional-data-django) [![Coverage Status](https://coveralls.io/repos/github/sfbrigade/congressional-data-django/badge.svg?branch=master)](https://coveralls.io/github/sfbrigade/congressional-data-django?branch=master)
 
 Welcome to the Congressional Data Django README file. This is a living breathing document so don't be shy and feel free to contribute documentation!
 
