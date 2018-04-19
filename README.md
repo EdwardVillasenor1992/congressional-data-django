@@ -17,7 +17,8 @@ This guide will walk you through getting your local environment stood up.
 
 #### Install Required Dependencies
 In order to stand up a local postgres instance first you have to install several dependencies.
-##### Linux Users
+
+##### Ubuntu Users
 
 First log in as the super user so you don't have to sudo everything
 ```bash
@@ -46,18 +47,18 @@ brew install python postgresql
 
 coming soon...
 
-if you are using Ubuntu on Windows, please see Linux Users
+if you are using Ubuntu on Windows, please see Ubuntu Users
 
 #### Start Up Local Postgres
 
-##### Linux Users
+##### Ubuntu Users
 
 Start up the service!
 ```bash
 service postgresql start
 ```
 
-Log in to the postgres user
+Switch from super user to the postgres user
 ```bash
 su - postgres
 ```
@@ -76,6 +77,11 @@ local  all      all          md5
 
 The default values may be the postgres user for the database and user as well as "peer" for the method. Make sure that the database is set to all, the users are set to all, and the method is set to md5 and not peer.
 
+Restart to apply configuration changes
+```bash
+service postgresql restart
+```
+
 ##### Mac Users
 
 ```bash
@@ -92,6 +98,7 @@ postgres -V
 ```bash
 psql postgres # You may need to run this with sudo
 ```
+
 This should start the postgres cli tool. (You can tell if your console prepend says, "postgres=". Let's first use it to check out our users.
 
 ```bash
@@ -104,7 +111,8 @@ ALTER ROLE <username> SET client_encoding TO 'utf8';
 ALTER ROLE <username> SET default_transaction_isolation TO 'read committed';
 ALTER ROLE <username> SET timezone TO 'UTC';
 ```
-replace the angle brackets with your desired username/password combination. This is the account we will use in our local Django settings.
+
+Replace the angle brackets with your desired username/password combination, eg foo/bar. This is the account you will use for your _local_ Django settings.
 
 Optionally, at this point you can give your service account user permissions to create databases.
 ```sql
