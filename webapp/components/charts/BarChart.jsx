@@ -22,8 +22,9 @@ class BarChart extends Component {
 	// Append initial group element using a reference to the svg DOM node.
 	const g = select(this.svg).append('g');
 
+	// Left margin needs to be -10 as if left >= 0, then two lines will be drawn
+	var margin = {top: 20, right: 350, bottom: 80, left: -10};
 
-	const margin = {top: 20, right: 350, bottom: 80, left: 320};
 	const x = scaleLinear()
 		.range([0, width - margin.right])
 
@@ -33,7 +34,15 @@ class BarChart extends Component {
 			
 	x.domain([0, max(data, d => +d[yKey])]).nice();
 	y.domain(data.map(d => d[xKey]));
-			
+
+        const yAxis = g.append('g')
+        .attr('transform', `translate(${margin.left},0)`)
+        .call(axisLeft(y));
+
+        const labels = yAxis.selectAll('g').nodes();
+        const marginLeft = max(labels, label => label.getBBox().width);
+
+	margin.left = marginLeft * 10;			
 
 	g.append('g') 
 		.attr('transform',`translate(${margin.left}, ${height - margin.bottom - margin.top})`)

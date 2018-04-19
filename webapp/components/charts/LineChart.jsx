@@ -17,27 +17,32 @@ class LineChart extends Component {
     }
 
     createChart = () => {
-        const { width, height, xKey, yKey, data, lineColor } = this.props;
-        const margin = {top: 20, right: 0, bottom: 300, left: 80};
+        const { width, height, xKey, yKey, data, lineColor } = this.props;		
+	const g = select(this.svg).append('g');
 
-        const x = scaleBand() 
-            .range([margin.left, width - margin.right])
-            .padding(0.1); 
+        var margin = {top: 20, right: 0, bottom: -10, left: 80};
 
+        const x = scaleBand()
+                .range([margin.left, width - margin.right])
+                .padding(0.1)
+        x.domain(data.map(d => d[xKey]));
+
+        const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        const labels = xAxis.selectAll('g').nodes();
+        const marginBottom = max(labels, label => label.getBBox().width);
+
+        margin.bottom = marginBottom * 10;
+        
         const y = scaleLinear()
-            .range([height - margin.bottom, margin.top]);
-			
-	const chartline = line()
-		.x(function(d){return x(d[xKey]);})
-		.y(function (d){return y(d[yKey]);});
-
-
-	x.domain(data.map(d => d[xKey]));
+                .range([height - margin.bottom, margin.top])
         y.domain([0, max(data, d => +d[yKey])]).nice();
 
-		
-	const g = select(this.svg).append('g');
-		
+	const chartline = line()
+		.x(function(d){return x(d[xKey]);})
+		.y(function (d){return y(d[yKey]);});		
 
 	// Add the X Axis
 	g.append("g")

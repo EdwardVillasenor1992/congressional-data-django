@@ -22,29 +22,37 @@ class ColumnChart extends Component {
 	// Append initial group element using a reference to the svg DOM node.
 	const g = select(this.svg).append('g');
 
-	const margin = {top: 20, right: 0, bottom: 300, left: 80};
+	var margin = {top: 20, right: 0, bottom: -10, left: 80};
 
 	const x = scaleBand()
 		.range([margin.left, width - margin.right])
 		.padding(0.1)
+	x.domain(data.map(d => d[xKey]));
+
+	const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        const labels = xAxis.selectAll('g').nodes();
+        const marginBottom = max(labels, label => label.getBBox().width);
+
+        margin.bottom = marginBottom * 10;
 
 	const y = scaleLinear()
 		.range([height - margin.bottom, margin.top])
-
-	x.domain(data.map(d => d[xKey]));
 	y.domain([0, max(data, d => +d[yKey])]).nice();
 
 	g.append('g')
 		.attr('transform', `translate(0,${height - margin.bottom})`)
 		.call(axisBottom(x)
 			.tickSizeOuter(0))
-		.selectAll('text')
+	/*	.selectAll('text')
 			.attr('x', 9)
 			.attr('y', 0)
 			.attr('dy', '.35em')
 			.attr('transform', 'rotate(90)')
 			.style('text-anchor', 'start')
-
+*/
 	g.append('g')
 		.attr('transform', `translate(${margin.left},0)`)
 		.call(axisLeft(y))
