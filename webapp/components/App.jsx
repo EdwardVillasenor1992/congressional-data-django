@@ -8,15 +8,19 @@ import getData from '../api/getData';
  * The toplevel application component to render as the root node.
  */
 class App extends Component {
-    state = {
-        error: null,
-        data: null,
+    constructor() {
+        super();
+        this.state = {
+            error: null,
+            data: null,
+        };
+        this.getContributions = this.getContributions.bind(this);
     }
 
     /**
      * Check the current state of the component and return the page content.
      */
-    getContributions = () => {
+    getContributions() {
         const { error, data } = this.state;
         if (error) {
             return (
@@ -24,14 +28,14 @@ class App extends Component {
                     <h3>Internal Error.</h3>
                     <p>{`${error}`}</p>
                 </Alert>
-            )
+            );
         }
         return data && data.map(contribution => (
             <li key={contribution.transaction_id}>
                 {contribution.donor_name}{' $'}
                 {contribution.transaction_amount}
             </li>
-        ))
+        ));
     }
 
     componentWillMount() {
@@ -49,16 +53,16 @@ class App extends Component {
                     </Row>
                     <Row>
                         <div className="contribution-list">
-                        <p>
-                            Below are some candidate contributions loaded from
-                            the API server. Now let's visualize them!
-                        </p>
+                            <p>
+                                {'Below are some candidate contributions loaded '}
+                                {'form the API server. Now let\'s visualize them!'}
+                            </p>
                             {this.getContributions()}
                         </div>
                     </Row>
                 </Grid>
             </div>
-        )
+        );
     }
 }
 

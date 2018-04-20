@@ -8,16 +8,16 @@ import safeJSONParse from '../util/safeJSONParse';
  */
 function getData(route, cb) {
     request.get(`http://localhost:8000/${route}`)
-    .end((err, res) => {
-        if (err) {
-            return cb(err);
-        }
-        const { error, data } = safeJSONParse(res.text);
-        if (error) {
-            return cb(error);
-        }
-        cb(null, data);
-    });
+        .end((err, res) => {
+            if (err) {
+                return cb(err);
+            }
+            const { error, data } = safeJSONParse(res.text);
+            if (error) {
+                return cb(error);
+            }
+            return cb(null, data);
+        });
 }
 
 export default getData;
