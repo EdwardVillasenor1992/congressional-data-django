@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap/lib';
 import Spinner from 'react-spinkit';
 import ColumnChart from './charts/ColumnChart';
 import BarChart from './charts/BarChart';
@@ -13,10 +12,14 @@ import mockData from '../mock/data.json';
  * chart with the response data.
  */
 class FundingSources extends Component {
-    state = {
-        formError: null,
-        loading: null,
-        data: [],
+    constructor() {
+        super();
+        this.state = {
+            formError: null,
+            loading: null,
+            data: [],
+        };
+        this.getFundingSources = this.getFundingSources.bind(this);
     }
 
     /**
@@ -24,7 +27,7 @@ class FundingSources extends Component {
      * @param {string} candidate - The candidate name.
      * @return {undefined}
      */
-    getFundingSources = (candidate) => {
+    getFundingSources(candidate) {
         this.setState({ loading: true });
         const count = 30;
         getData(`api/funding/sources/${candidate}/${count}`, (err, data) => {
@@ -34,8 +37,8 @@ class FundingSources extends Component {
             } else if (data.length === 0) {
                 formError = `Could not find data for '${candidate}'.`;
             }
-            this.setState({ formError, loading: false, data })
-        })
+            this.setState({ formError, loading: false, data });
+        });
     }
 
     render() {
@@ -62,32 +65,32 @@ class FundingSources extends Component {
                     />
                 }
                 {displayChart &&
-		    <div>
+		  <div>
                     <BarChart data={data}  // Horizontal Bar Chart
-                        xKey={'donor'}
-                        yKey={'sum'}
-                        width={800}
-                        height={800}
-                        barColor='steelBlue'
-                    /> 
-		    <ColumnChart data={data} // Vertical Bar Chart
-			xKey={'donor'}
-			yKey={'sum'}
-			width={800}
-			height={800}
-			barColor='steelBlue'	
-		    />
-                    <LineChart data={data}
-                        xKey={'donor'}
-                        yKey={'sum'}
-                        width={800}
-                        height={800}
-			lineColor='steelBlue'
-                    />
-		   </div>
+                            xKey={'donor'}
+                            yKey={'sum'}
+                            width={800}
+                            height={800}
+                            barColor='steelBlue'
+                        />
+                        <ColumnChart data={data} // Vertical Bar Chart
+                            xKey={'donor'}
+                            yKey={'sum'}
+                            width={800}
+                            height={800}
+                            barColor='steelBlue'
+                        />
+                        <LineChart data={data}
+                            xKey={'donor'}
+                            yKey={'sum'}
+                            width={800}
+                            height={800}
+                            lineColor='steelBlue'
+                        />
+                    </div>
                 }
             </div>
-        )
+        );
     }
 }
 

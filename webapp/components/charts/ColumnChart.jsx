@@ -17,7 +17,7 @@ class ColumnChart extends Component {
 
 // Vertical Orientation of Chart
 
-    createChart = () => {
+    createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
 	// Append initial group element using a reference to the svg DOM node.
 	const g = select(this.svg).append('g');
@@ -75,4 +75,14 @@ class ColumnChart extends Component {
         </svg>
     }
 }
+
+ColumnChart.propTypes = {
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    xKey: PropTypes.string.isRequired,
+    yKey: PropTypes.string.isRequired,
+    barColor: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+};
+
 export default ColumnChart

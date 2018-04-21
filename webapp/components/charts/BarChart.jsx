@@ -5,6 +5,10 @@ import { select, selectAll } from 'd3-selection'
 import { axisBottom, axisLeft } from 'd3-axis'
 
 class BarChart extends Component {
+    constructor() {
+        super();
+        this.createChart = this.createChart.bind(this);
+    }
 
     componentDidMount() {
         this.createChart();
@@ -17,13 +21,13 @@ class BarChart extends Component {
 
 // Horizontal Oreintation Chart
 
-    createChart = () => {
+    createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
 	// Append initial group element using a reference to the svg DOM node.
 	const g = select(this.svg).append('g');
 
 	// Left margin needs to be -10 as if left >= 0, then two lines will be drawn
-	var margin = {top: 20, right: 350, bottom: 80, left: -10};
+	var margin = {top: 20, right: 350, bottom: 80, left: 320};
 
 	const x = scaleLinear()
 		.range([0, width - margin.right])
@@ -34,15 +38,6 @@ class BarChart extends Component {
 			
 	x.domain([0, max(data, d => +d[yKey])]).nice();
 	y.domain(data.map(d => d[xKey]));
-
-        const yAxis = g.append('g')
-        .attr('transform', `translate(${margin.left},0)`)
-        .call(axisLeft(y));
-
-        const labels = yAxis.selectAll('g').nodes();
-        const marginLeft = max(labels, label => label.getBBox().width);
-
-	margin.left = marginLeft * 10;			
 
 	g.append('g') 
 		.attr('transform',`translate(${margin.left}, ${height - margin.bottom - margin.top})`)
@@ -74,7 +69,17 @@ class BarChart extends Component {
         return <svg ref={node => this.svg = node}
             width={width}
             height={height}>
-        </svg>
+        </svg>;
     }
 }
-export default BarChart
+
+BarChart.propTypes = {
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    xKey: PropTypes.string.isRequired,
+    yKey: PropTypes.string.isRequired,
+    barColor: PropTypes.string.isRequired,
+    data: PropTypes.array.isRequired,
+};
+
+export default BarChart;
