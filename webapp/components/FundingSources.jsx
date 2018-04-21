@@ -65,8 +65,8 @@ class FundingSources extends Component {
                     />
                 }
                 {displayChart &&
-		  <div>
-                    <BarChart data={data}  // Horizontal Bar Chart
+                    <div>
+                        <BarChart data={data} // Horizontal Bar Chart
                             xKey={'donor'}
                             yKey={'sum'}
                             width={800}

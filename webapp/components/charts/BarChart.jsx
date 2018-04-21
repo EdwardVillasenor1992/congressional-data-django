@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { scaleLinear, scaleBand } from 'd3-scale'
-import { max, merge } from 'd3-array'
-import { select, selectAll } from 'd3-selection'
-import { axisBottom, axisLeft } from 'd3-axis'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { scaleLinear, scaleBand } from 'd3-scale';
+import { max } from 'd3-array';
+import { select } from 'd3-selection';
+import { axisBottom, axisLeft } from 'd3-axis';
 
 class BarChart extends Component {
     constructor() {
@@ -19,49 +20,47 @@ class BarChart extends Component {
         this.createChart();
     }
 
-// Horizontal Oreintation Chart
-
+    // Horizontal Oreintation Chart
     createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
-	// Append initial group element using a reference to the svg DOM node.
-	const g = select(this.svg).append('g');
+        const margin = {top: 20, right: 0, bottom: 300, left: 80};
+        // Append initial group element using a reference to the svg DOM node.
+        const g = select(this.svg).append('g');
 
-	// Left margin needs to be -10 as if left >= 0, then two lines will be drawn
-	var margin = {top: 20, right: 350, bottom: 80, left: 320};
+        const x = scaleLinear()
+            .range([0, width - margin.right]);
 
-	const x = scaleLinear()
-		.range([0, width - margin.right])
+        const y = scaleBand()
+            .range([height - margin.bottom - margin.top, 0])
+            .padding(0.1);
 
-	const y = scaleBand()
-		.range([height - margin.bottom - margin.top, 0])
-		.padding(0.1)
-			
-	x.domain([0, max(data, d => +d[yKey])]).nice();
-	y.domain(data.map(d => d[xKey]));
+        x.domain([0, max(data, d => +d[yKey])]).nice();
+        y.domain(data.map(d => d[xKey]));
 
-	g.append('g') 
-		.attr('transform',`translate(${margin.left}, ${height - margin.bottom - margin.top})`)
-		.call(axisBottom(x)
-		.tickSizeOuter(0))
-		.selectAll('text')
-                      .attr('x', 9)
-                      .attr('y', 0)
-                      .attr('dy', '.35em')
-                      .attr('transform', 'rotate(80)')
-                      .style('text-anchor', 'start')
+        g.append('g')
+            .attr('transform', `translate(${margin.left}, ${height - margin.bottom - margin.top})`)
+            .call(axisBottom(x)
+                .tickSizeOuter(0))
+            .selectAll('text')
+            .attr('x', 9)
+            .attr('y', 0)
+            .attr('dy', '.35em')
+            .attr('transform', 'rotate(80)')
+            .style('text-anchor', 'start');
 
-	g.append('g')
-		.attr('transform', `translate(${margin.left}, 0)`) 
-		.call(axisLeft(y))
+        g.append('g')
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(axisLeft(y));
 
-	g.selectAll()
-		.data(data)
-		.enter().append('rect')
-			.attr('fill', barColor)
-			.attr('x', d => margin.left)
-			.attr('y', d => y(d[xKey]))
-			.attr('width', d => x(d[yKey]))
-			.attr('height', d => y.bandwidth());
+        g.selectAll()
+            .data(data)
+            .enter().append('rect')
+            .attr('fill', barColor)
+            .attr('x', margin.left)
+            .attr('y', d => y(d[xKey]))
+            .attr('width', d => x(d[yKey]))
+            .attr('height', y.bandwidth());
+
     }
 
     render() {
