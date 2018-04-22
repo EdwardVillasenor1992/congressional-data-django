@@ -46,7 +46,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Congressional Data</h1>
+                <h1><img src="https://avatars3.githubusercontent.com/u/3926630?s=50&v=4"/>Congressional Data</h1>
                 <Grid>
                     <Row>
                         <FundingSources />
