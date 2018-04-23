@@ -60,7 +60,6 @@ class BarChart extends Component {
             .attr('y', d => y(d[xKey]))
             .attr('width', d => x(d[yKey]))
             .attr('height', y.bandwidth());
-
     }
 
     render() {
