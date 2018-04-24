@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Spinner from 'react-spinkit';
-
+import ColumnChart from './charts/ColumnChart';
 import BarChart from './charts/BarChart';
 import LineChart from './charts/LineChart';
 import Form from './Form';
@@ -66,7 +66,14 @@ class FundingSources extends Component {
                 }
                 {displayChart &&
                     <div>
-                        <BarChart data={data}
+                        <BarChart data={data} // Horizontal Bar Chart
+                            xKey={'donor'}
+                            yKey={'sum'}
+                            width={800}
+                            height={800}
+                            barColor='steelBlue'
+                        />
+                        <ColumnChart data={data} // Vertical Bar Chart
                             xKey={'donor'}
                             yKey={'sum'}
                             width={800}
