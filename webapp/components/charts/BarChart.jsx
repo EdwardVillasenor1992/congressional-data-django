@@ -23,19 +23,37 @@ class BarChart extends Component {
     // Horizontal Oreintation Chart
     createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
-        const margin = {top: 20, right: 0, bottom: 300, left: 80};
+        // Negative margins, will be changed later
+        var margin = {top: 20, right: 0, bottom: -10, left: -10};
         // Append initial group element using a reference to the svg DOM node.
         const g = select(this.svg).append('g');
 
         const x = scaleLinear()
             .range([0, width - margin.right]);
+        x.domain([0, max(data, d => +d[yKey])]).nice();
+
+        const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        var labels = xAxis.selectAll('g').nodes();
+        const marginBottom = max(labels, label => label.getBBox().width);
+        margin.bottom = marginBottom;
 
         const y = scaleBand()
             .range([height - margin.bottom - margin.top, 0])
             .padding(0.1);
 
-        x.domain([0, max(data, d => +d[yKey])]).nice();
         y.domain(data.map(d => d[xKey]));
+
+        const yAxis = g.append('g')
+        .attr('transform', `translate(${margin.left},0)`)
+        .attr('stroke', '#ffff')
+        .call(axisLeft(y));
+
+        labels = yAxis.selectAll('g').nodes();
+        const marginLeft = max(labels, label => label.getBBox().width);
+        margin.left = marginLeft;
 
         g.append('g')
             .attr('transform', `translate(${margin.left}, ${height - margin.bottom - margin.top})`)

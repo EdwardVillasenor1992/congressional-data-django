@@ -23,11 +23,21 @@ class LineChart extends Component {
 
     createChart() {
         const { width, height, xKey, yKey, data, lineColor } = this.props;
-        const margin = {top: 20, right: 0, bottom: 300, left: 80};
+        const g = select(this.svg).append('g');
+        var margin = {top: 20, right: 0, bottom: -10, left: 20};
 
         const x = scaleBand()
             .range([margin.left, width - margin.right])
             .padding(0.1);
+        x.domain(data.map(d => d[xKey]));
+
+        const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        var labels = xAxis.selectAll('g').nodes();
+        const marginBottom = max(labels, label => label.getBBox().width);
+        margin.bottom = marginBottom * 10;
 
         const y = scaleLinear()
             .range([height - margin.bottom, margin.top]);
@@ -36,10 +46,17 @@ class LineChart extends Component {
             .x((d) => x(d[xKey]))
             .y((d) => y(d[yKey]));
 
-        x.domain(data.map(d => d[xKey]));
         y.domain([0, max(data, d => +d[yKey])]).nice();
 
-        const g = select(this.svg).append('g');
+        const yAxis = g.append('g')
+        .attr('transform', `translate(${margin.left},0)`)
+        .attr('stroke', '#ffff')
+        .call(axisLeft(y));
+
+        labels = yAxis.selectAll('g').nodes();
+        const marginLeft = max(labels, label => label.getBBox().width);
+        margin.left = marginLeft;
+
 
         // Add the X Axis
         g.append('g')
