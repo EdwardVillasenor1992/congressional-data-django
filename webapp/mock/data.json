@@ -4,32 +4,32 @@
         "sum": 0
     },
     {
-        "donor": "b",
-        "sum": 1
+        "donor": "bbb",
+        "sum": 100000
     },
     {
-        "donor": "c",
+        "donor": "cccccccccccc",
         "sum": 2
     },
     {
-        "donor": "d",
-        "sum": 3
+        "donor": "dd",
+        "sum": 300
     },
     {
-        "donor": "e",
-        "sum": 4
+        "donor": "eeee",
+        "sum": 4000
     },
     {
-        "donor": "f",
-        "sum": 5
+        "donor": "ffff",
+        "sum": 500
     },
     {
-        "donor": "g",
-        "sum": 6
+        "donor": "ggggg",
+        "sum": 60000
     },
     {
-        "donor": "h",
-        "sum": 7
+        "donor": "hhhhhhh",
+        "sum": 70000
     },
     {
         "donor": "i",

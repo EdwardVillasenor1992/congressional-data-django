@@ -63,7 +63,13 @@ class ColumnChart extends Component {
         g.append('g')
             .attr('transform', `translate(0,${height - margin.bottom})`)
             .call(axisBottom(x)
-                .tickSizeOuter(0));
+                .tickSizeOuter(0))
+            .selectAll('text')
+            .attr('x', 9)
+            .attr('y', 0)
+            .attr('dy', '.35em')
+            .attr('transform', 'rotate(80)')
+            .style('text-anchor', 'start');
 
         g.append('g')
             .attr('transform', `translate(${margin.left},0)`)
