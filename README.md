@@ -11,11 +11,51 @@ Welcome to the Congressional Data Django README file. This is a living breathing
 - [DevOps](#devops)
 
 ## Getting Started
+
 This guide will walk you through getting your local environment stood up.
+
+Code for San Francisco team composition is highly variable! To simplify maintenance, 
+we bias to a consistent set of standard tools, such as:
+
+* Ubuntu
+* Python
+* Django
+* Postgres
+
+### Python
+
+We use Django 2, which requires Python 3, which luckily ships with Ubuntu (16.04)!
+
+    $ which python3
+    /usr/bin/python3
+
+Our repo contains a [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/#lower-level-virtualenv) [requirements.txt](https://github.com/sfbrigade/congressional-data-django/blob/master/requirements.txt) file to simplify dependency management.
+
+Create a virtual env with Python 3 for running Django:
+
+    $ virtualenv -p /usr/bin/python3 ~/venv
+
+**Note:** the location and name of your virtual env are up to you!
+
+Activate your virtual env:
+
+    $ source ~/venv/bin/activate
+
+**Note:** you should see the prompt in your terminal updated w your virtual env name
+after activation, eg:
+
+    (venv) $
+
+Install dependencies:
+
+    (venv) $ pip install -r requirements.txt
+
+You should now have Django installed, which you can [verify](https://docs.djangoproject.com/en/2.0/intro/install/#verifying).
 
 ### Setup Local Postgres Instance
 
 #### Install Required Dependencies
+
 In order to stand up a local postgres instance first you have to install several dependencies.
 
 ##### Ubuntu Users
