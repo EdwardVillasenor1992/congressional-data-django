@@ -24,12 +24,12 @@ class ColumnChart extends Component {
     createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
         // Negative margins, will be changed later
-        var margin = {top: 20, right: 0, bottom: -10, left: 20};
+        var margin = {top: 20, right: 0, bottom: -10, left: -10};
 
         // Append initial group element using a reference to the svg DOM node.
         const g = select(this.svg).append('g');
 
-        const x = scaleBand()
+        var x = scaleBand()
             .range([margin.left, width - margin.right])
             .padding(0.1);
         x.domain(data.map(d => d[xKey]));
@@ -40,7 +40,7 @@ class ColumnChart extends Component {
 
         var labels = xAxis.selectAll('g').nodes();
         const marginBottom = max(labels, label => label.getBBox().width);
-        margin.bottom = marginBottom * 10;
+        margin.bottom = marginBottom + 10;
 
         const y = scaleLinear()
             .range([height - margin.bottom, margin.top]);
@@ -48,12 +48,17 @@ class ColumnChart extends Component {
 
         const yAxis = g.append('g')
         .attr('transform', `translate(${margin.left},0)`)
-        .attr('stroke', '#ffff')
         .call(axisLeft(y));
 
         labels = yAxis.selectAll('g').nodes();
         const marginLeft = max(labels, label => label.getBBox().width);
-        margin.left = marginLeft;
+
+        margin.left = marginLeft + 10;
+
+        x = scaleBand()
+            .range([margin.left, width - margin.right])
+            .padding(0.1);
+        x.domain(data.map(d => d[xKey]));
 
         g.append('g')
             .attr('transform', `translate(0,${height - margin.bottom})`)
@@ -64,6 +69,7 @@ class ColumnChart extends Component {
             .attr('transform', `translate(${margin.left},0)`)
             .call(axisLeft(y));
 
+
         g.selectAll()
             .data(data)
             .enter().append('rect')
@@ -72,7 +78,6 @@ class ColumnChart extends Component {
             .attr('y', d => y(d[yKey]))
             .attr('width', x.bandwidth())
             .attr('height', d => height - margin.bottom - y(d[yKey]));
-
     }
 
     render() {
