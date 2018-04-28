@@ -178,17 +178,37 @@ DJANGO_SETTINGS_MODULE=congressionaldata.settings.local
 
 #### Making Migrations
 
-If this is the first time you have ran the Django application against your local database you are going to have to perform a Django migration.
+Any time you make changes to a model, or initialize a new DB, you will perform a
+[Django migration](https://docs.djangoproject.com/en/2.0/topics/migrations/).
 
-First run the makemigrations command to generate the necessary migration files.
-```bash
-./manage.py makemigrations
-```
+**Theory:** DBs are global repositories of state, which makes them scary to modify;
+[database migrations](https://en.wikipedia.org/wiki/Schema_migration) provide a layer
+of control so you can apply and revert changes, and in practice environments.
 
-Next run the migrate command (and make sure the settings is pointed at your local environment) to sync the existing Django model with your database tables.
-```bash
-./manage.py migrate --settings=congressionaldata.settings.local
-```
+1. Run the `makemigrations` command to generate the necessary migration files
+
+        ./manage.py makemigrations
+
+1. Test against your local environment
+
+        ./manage.py migrate --settings=congressionaldata.settings.local
+
+1. If everything looks good locally, open a PR to review the migration code
+1. While changes are in review, holler in slack ("staging pr 123!"), migrate the shared
+"staging" environment, and then ask the team to test ("plz test staging!")
+
+        ./manage.py migrate --settings=congressionaldata.settings.dev
+
+1. If staging breaks, revert staging
+
+        ./manage.py migrate --settings=congressionaldata.settings.dev <previous version>
+        
+1. If everything looks good, merge the migration PR, and then migrate the prod environment
+
+        ./manage.py migrate --settings=congressionaldata.settings.prod
+
+**Theory:** local, staging and prod progressively affect more people and become harder to change;
+anything in prod should be committed to source control (and ideally deployed by CI) for sanity.
 
 #### Create your Superuser
 
@@ -199,6 +219,42 @@ Once the migration has been completed you will have to create a super user to au
 ```
 Follow the steps output by this command.
 
+#### Migrating schema changes into Django
+
+We started this project with a [schema defined outside Django](https://github.com/sfbrigade/datasci-congressional-data/blob/master/pipeline/pipeline_tasks/queries) and are now migrating this [legacy schema](https://docs.djangoproject.com/en/2.0/howto/legacy-databases/) to Django.
+
+In the unusual case we need to migrate additional schema changes to Django:
+
+1. Note the prod settings from the DB credentials doc
+
+        postgresql://<user>:<password>@<host>:<port>/<database name>
+
+1. Update secrets/local_settings.py with these settings
+
+        os.environ['PROD_POSTGRES_HOST'] = ''
+        os.environ['PROD_POSTGRES_PORT'] = ''
+        os.environ['PROD_POSTGRES_DATABASE_NAME'] = ''
+        os.environ['PROD_POSTGRES_USER'] = ''
+        os.environ['PROD_POSTGRES_PASSWORD'] = ''
+
+1. Inspect the prod db and capture output in tmp file
+
+        ./manage.py inspectdb --settings=congressionaldata.settings.prod > foo
+
+1. We print a couple things for sanity, but this output isn't valid python so remove
+
+        Loading Settings: congressionaldata.settings.prod
+        Local Secrets Loaded!
+
+1. Move output to models.py
+
+        mv foo api/models.py
+
+1. Changes look sane?
+
+        git diff api/models.py
+
+1. Migrate local > staging > prod as described above
 
 ### Troubleshooting
 
