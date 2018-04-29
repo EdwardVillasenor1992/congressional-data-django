@@ -1,0 +1,131 @@
+cn,rcn_tacc,party_name,election_year,contest_name,total_votes,incumbent_flag,is_winner,average_amount_per_contrib,num_trans,total_contrib
+Steve Cooley,stevecooley,REP,2010,attorney,4368624.0,N,0,1459.77,3797,5542737.84
+Kamala D. Harris,kamaladharris,DEM,2010,attorney,4442781.0,N,1,968.48,7705,7462100.34
+John Chiang,johnchiang,DEM,2010,controller,5325357.0,Y,1,1027.13,2157,2215518.96
+Tony Strickland,tonystrickland,REP,2010,controller,3487014.0,N,0,1693.72,1572,2662524.04
+Dave Jones,davejones,DEM,2010,insurance,4765400.0,N,1,993.84,4176,4150255.58
+Gavin Newsom,gavinnewsom,DEM,2010,lieutenant,4917880.0,N,1,1341.68,4918,6598393.92
+Abel Maldonado,abelmaldonado,REP,2010,lieutenant,3820971.0,N,0,1732.78,1307,2264745.51
+Debra Bowen,debrabowen,DEM,2010,secretary,5105307.0,Y,1,657.26,1030,676977.57
+Larry Aceves,larryaceves,NP,2010,superintendent,3476243.0,N,0,352.63,1323,466531.90
+Tom Torlakson,tomtorlakson,NP,2010,superintendent,4222946.0,N,1,1220.24,1956,2386789.44
+Bill Lockyer,billlockyer,DEM,2010,treasurer,5433222.0,Y,1,1350.25,389,525246.30
+Mimi Walters,mimiwalters,REP,2010,treasurer,3479709.0,N,0,1490.05,1050,1564553.95
+Ronald Gold,ronaldgold,REP,2014,attorney,3033476.0,N,0,1126.87,106,119448.52
+Kamala D. Harris,kamaladharris,DEM,2014,attorney,4102649.0,Y,1,2059.94,2111,4348536.89
+Betty T. Yee,bettytyee,DEM,2014,controller,3810304.0,N,1,849.82,2428,2063352.06
+Ashley Swearengin,ashleyswearengin,REP,2014,controller,3249668.0,N,0,1647.02,816,1343968.81
+Neel Kashkari,neelkashkari,REP,2014,governor,2929213.0,N,0,5304.48,1368,7256526.59
+"Edmund G. ""Jerry"" Brown",edmundgjerrybrown,DEM,2014,governor,4388368.0,Y,1,14841.13,1246,18492047.51
+Dave Jones,davejones,DEM,2014,insurance,4038165.0,Y,1,1205.56,2590,3122405.06
+Ron Nehring,ronnehring,REP,2014,lieutenant,3078039.0,N,0,258.77,245,63398.27
+Gavin Newsom,gavinnewsom,DEM,2014,lieutenant,4107051.0,Y,1,2119.72,1343,2846779.28
+Alex Padilla,alexpadilla,DEM,2014,secretary,3799711.0,N,1,1619.44,2157,3493135.94
+Marshall Tuck,marshalltuck,NP,2014,superintendent,2906989.0,N,0,843.08,3088,2603430.11
+Tom Torlakson,tomtorlakson,NP,2014,superintendent,3167212.0,Y,1,1418.20,1790,2538580.91
+Greg Conlon,gregconlon,REP,2014,treasurer,2925895.0,N,0,451.69,140,63236.22
+John Chiang,johnchiang,DEM,2014,treasurer,4176793.0,N,1,1225.94,3042,3729302.50
+Brian Dahle,briandahle,Republican,2016,State Assembly Member District 1,148657.0,Y,1,1365.43,417,569383.76
+Marc Levine,marclevine,Democratic,2016,State Assembly Member District 10,140207.0,Y,1,1088.67,821,893799.20
+Heath Flora,heathflora,Republican,2016,State Assembly Member District 12,81680.0,N,1,1910.46,165,315226.51
+Ken Vogel,kenvogel,Republican,2016,State Assembly Member District 12,74433.0,N,0,652.90,688,449197.25
+Tim Grayson,timgrayson,Democratic,2016,State Assembly Member District 14,107653.0,N,1,1985.57,388,770400.44
+Tony Thurmond,tonythurmond,Democratic,2016,State Assembly Member District 15,189530.0,Y,1,1327.12,940,1247488.45
+Claire Chiara,clairechiara,Republican,2016,State Assembly Member District 15,22528.0,N,0,228.79,15,3431.91
+Catharine Baker,catharinebaker,Republican,2016,State Assembly Member District 16,129585.0,Y,1,1262.44,2692,3398496.47
+Cheryl Cook-Kallio,cherylcookkallio,Democratic,2016,State Assembly Member District 16,102290.0,N,0,4329.02,708,3064946.90
+David Chiu,davidchiu,Democratic,2016,State Assembly Member District 17,172153.0,Y,1,1438.84,732,1053233.75
+Rob Bonta,robbonta,Democratic,2016,State Assembly Member District 18,156163.0,Y,1,1160.35,1617,1876284.19
+Roseann Slonsky-Breault,roseannslonskybreault,Republican,2016,State Assembly Member District 18,23273.0,N,0,242.86,28,6800
+Phil Ting,philting,Democratic,2016,State Assembly Member District 19,150052.0,Y,1,1493.01,777,1160072.41
+Luis A. Wong,luisawong,Republican,2016,State Assembly Member District 20,39507.0,N,0,392.77,44,17281.91
+Kevin Mullin,kevinmullin,Democratic,2016,State Assembly Member District 22,148289.0,Y,1,1169.45,730,853697.80
+Gwen L. Morris,gwenlmorris,Republican,2016,State Assembly Member District 23,39656.0,N,0,1155.71,54,62408.32
+Jim Patterson,jimpatterson,Republican,2016,State Assembly Member District 23,125153.0,Y,1,1286.28,547,703593.97
+Marc Berman,marcberman,Democratic,2016,State Assembly Member District 24,92419.0,N,1,1088.96,873,950660.20
+Vicki Veenker,vickiveenker,Democratic,2016,State Assembly Member District 24,77362.0,N,0,841.80,874,735733.74
+Kansen Chu,kansenchu,Democratic,2016,State Assembly Member District 25,107821.0,Y,1,1219.87,322,392798.14
+Bob Brunton,bobbrunton,Republican,2016,State Assembly Member District 25,40280.0,N,0,702.68,16,11242.93
+Ruben Macareno,rubenmacareno,Democratic,2016,State Assembly Member District 26,44205.0,N,0,325.28,4,1301.13
+Madison Nguyen,madisonnguyen,Democratic,2016,State Assembly Member District 27,63048.0,N,0,748.08,1550,1159518.93
+Ash Kalra,ashkalra,Democratic,2016,State Assembly Member District 27,71696.0,N,1,1047.68,1054,1104259.84
+Evan Low,evanlow,Democratic,2016,State Assembly Member District 28,136547.0,Y,1,1396.13,849,1185313.92
+Sierra Roberts,sierraroberts,Republican,2016,State Assembly Member District 29,60245.0,N,0,2150.00,2,4300
+Mark Stone,markstone,Democratic,2016,State Assembly Member District 29,156703.0,Y,1,881.56,397,349980.76
+James Gallagher,jamesgallagher,Republican,2016,State Assembly Member District 3,108910.0,Y,1,803.79,931,748330.33
+Anna Caballero,annacaballero,Democratic,2016,State Assembly Member District 30,79885.0,N,1,1423.07,454,646072.51
+Karina Cervantez Alejo,karinacervantezalejo,Democratic,2016,State Assembly Member District 30,47998.0,N,0,1050.07,441,463081.35
+Clint Olivier,clintolivier,Republican,2016,State Assembly Member District 31,35454.0,N,0,2237.81,329,736238.92
+Joaquin Arambula,joaquinarambula,Democratic,2016,State Assembly Member District 31,62404.0,Y,1,1523.03,1236,1882467.51
+Jay Obernolte,jayobernolte,Republican,2016,State Assembly Member District 33,84000.0,Y,1,1039.83,411,427369.08
+Dawn Ortiz-Legg,dawnortizlegg,Democratic,2016,State Assembly Member District 35,87168.0,N,0,4346.83,625,2716771.46
+Jordan Cunningham,jordancunningham,Republican,2016,State Assembly Member District 35,105247.0,N,1,1073.04,1174,1259747.51
+Steve Fox,stevefox,Democratic,2016,State Assembly Member District 36,68755.0,N,0,3254.77,50,162738.62
+Dante Acosta,danteacosta,Republican,2016,State Assembly Member District 38,102977.0,N,1,2579.15,383,987814.08
+Christy Smith,christysmith,Democratic,2016,State Assembly Member District 38,91801.0,N,0,4491.02,401,1800899.51
+Patty Lopez,pattylopez,Democratic,2016,State Assembly Member District 39,49649.0,Y,0,1154.33,121,139674.04
+Raul Bocanegra,raulbocanegra,Democratic,2016,State Assembly Member District 39,74834.0,N,1,1665.65,685,1140968.09
+Marc Steinorth,marcsteinorth,Republican,2016,State Assembly Member District 40,76537.0,Y,1,2848.45,893,2543662.11
+Casey C. Higgins,caseychiggins,Republican,2016,State Assembly Member District 41,78817.0,N,0,562.77,41,23073.62
+Chris Holden,chrisholden,Democratic,2016,State Assembly Member District 41,120633.0,Y,1,1616.52,508,821194.40
+Greg Rodriguez,gregrodriguez,Democratic,2016,State Assembly Member District 42,72581.0,N,0,200.40,1058,212028.24
+Chad Mayes,chadmayes,Republican,2016,State Assembly Member District 42,97864.0,Y,1,1508.89,994,1499840.19
+Laura Friedman,laurafriedman,Democratic,2016,State Assembly Member District 43,106186.0,N,1,837.64,1433,1200338.98
+Ardy Kassakhian,ardykassakhian,Democratic,2016,State Assembly Member District 43,58561.0,N,0,729.12,1524,1111183.94
+Kerry J. Nelson,kerryjnelson,Republican,2016,State Assembly Member District 44,74417.0,N,0,212.50,24,5100
+Jacqui Irwin,jacquiirwin,Democratic,2016,State Assembly Member District 44,107084.0,Y,1,1476.49,929,1371656.55
+Adrin Nazarian,adrinnazarian,Democratic,2016,State Assembly Member District 46,77587.0,Y,1,1294.85,615,796334.19
+Angela Rupert,angelarupert,Democratic,2016,State Assembly Member District 46,60658.0,N,0,571.21,98,55979
+Peter Amundson,peteramundson,Republican,2016,State Assembly Member District 49,35533.0,N,0,1328.33,15,19925
+Frank Bigelow,frankbigelow,Republican,2016,State Assembly Member District 5,121644.0,Y,1,1338.68,758,1014720.81
+Richard Bloom,richardbloom,Democratic,2016,State Assembly Member District 50,158967.0,Y,1,1386.47,420,582319.05
+Jimmy Gomez,jimmygomez,Democratic,2016,State Assembly Member District 51,110036.0,Y,1,1802.45,632,1139146.80
+Freddie Rodriguez,freddierodriguez,Democratic,2016,State Assembly Member District 52,64836.0,Y,1,1473.62,478,704391.44
+Miguel Santiago,miguelsantiago,Democratic,2016,State Assembly Member District 53,50958.0,Y,1,1506.47,847,1275979.69
+Phillip Chen,phillipchen,Republican,2016,State Assembly Member District 55,98960.0,N,1,2214.54,244,540346.72
+Eduardo Garcia,eduardogarcia,Democratic,2016,State Assembly Member District 56,93090.0,Y,1,1558.31,416,648255.32
+Cristina Garcia,cristinagarcia,Democratic,2016,State Assembly Member District 58,105170.0,Y,1,1465.29,710,1040352.40
+Brian Caples,briancaples,Democratic,2016,State Assembly Member District 6,81919.0,N,0,597.12,34,20302
+Kevin Kiley,kevinkiley,Republican,2016,State Assembly Member District 6,149415.0,N,1,757.17,802,607248.75
+Sabrina Cervantes,sabrinacervantes,Democratic,2016,State Assembly Member District 60,77404.0,N,1,4024.44,508,2044413.53
+Hector Diaz,hectordiaz,Republican,2016,State Assembly Member District 61,46924.0,N,0,1975.10,56,110605.8
+Autumn Burke,autumnburke,Democratic,2016,State Assembly Member District 62,123699.0,Y,1,1720.51,572,984130.24
+Baron Bruno,baronbruno,Libertarian,2016,State Assembly Member District 62,8958.0,N,0,1157.26,26,30088.66
+Anthony Rendon,anthonyrendon,Democratic,2016,State Assembly Member District 63,89134.0,Y,1,2000.66,1341,2682882.44
+Theresa Sanford,theresasanford,Republican,2016,State Assembly Member District 64,31300.0,N,0,526.27,20,10525.43
+Sharon Quirk-Silva,sharonquirksilva,Democratic,2016,State Assembly Member District 65,79654.0,N,1,4415.87,980,4327551.14
+Al Muratsuchi,almuratsuchi,Democratic,2016,State Assembly Member District 66,105336.0,N,1,3946.28,1190,4696068.86
+Melissa Melendez,melissamelendez,Republican,2016,State Assembly Member District 67,107654.0,Y,1,1200.00,299,358800
+Sean Jay Panahi,seanjaypanahi,Democratic,2016,State Assembly Member District 68,75231.0,N,0,876.33,90,78869.63
+Ofelia Velarde-Garcia,ofeliavelardegarcia,Republican,2016,State Assembly Member District 69,32324.0,N,0,453.57,14,6350
+Tom Daly,tomdaly,Democratic,2016,State Assembly Member District 69,69640.0,Y,1,1686.62,621,1047389.64
+Kevin McCarty,kevinmccarty,Democratic,2016,State Assembly Member District 7,111112.0,Y,1,1537.94,460,707453.07
+Ryan K. Brown,ryankbrown,Republican,2016,State Assembly Member District 7,48097.0,N,0,4366.36,3,13099.07
+Patrick O'Donnell,patrickodonnell,Democratic,2016,State Assembly Member District 70,107389.0,Y,1,1564.20,555,868133.02
+Leo Hamel,leohamel,Republican,2016,State Assembly Member District 71,56184.0,N,0,2375.00,2,4750
+Travis Allen,travisallen,Republican,2016,State Assembly Member District 72,98335.0,Y,1,1357.68,405,549858.54
+Matthew Harper,matthewharper,Republican,2016,State Assembly Member District 74,114477.0,Y,1,1183.64,221,261584.14
+Karina Onofre,karinaonofre,Democratic,2016,State Assembly Member District 74,89362.0,N,0,1001.13,1,1001.13
+Marie Waldron,mariewaldron,Republican,2016,State Assembly Member District 75,111598.0,Y,1,1407.60,258,363161.67
+Rocky Chavez,rockychavez,Republican,2016,State Assembly Member District 76,95477.0,Y,1,1515.90,158,239512.42
+Brian Maienschein,brianmaienschein,Republican,2016,State Assembly Member District 77,121140.0,Y,1,1507.75,493,743322.66
+Todd Gloria,toddgloria,Democratic,2016,State Assembly Member District 78,145850.0,N,1,1044.08,716,747558.09
+Shirley N. Weber,shirleynweber,Democratic,2016,State Assembly Member District 79,114080.0,Y,1,1320.89,390,515148.87
+Ken Cooley,kencooley,Democratic,2016,State Assembly Member District 8,104552.0,Y,1,1621.90,407,660114.07
+Jim Cooper,jimcooper,Democratic,2016,State Assembly Member District 9,109979.0,Y,1,1554.53,897,1394415.42
+Jane Kim,janekim,Democratic,2016,State Senate District 11,201316.0,N,0,678.24,2307,1564695.86
+Jim Beall,jimbeall,Democratic,2016,State Senate District 15,196089.0,Y,1,1937.54,958,1856166.88
+Nora Campos,noracampos,Democratic,2016,State Senate District 15,117442.0,N,0,1550.16,353,547205.77
+Palmer Kain,palmerkain,Republican,2016,State Senate District 17,141339.0,N,0,558.84,64,35765.62
+Hannah-Beth Jackson,hannahbethjackson,Democratic,2016,State Senate District 19,224834.0,Y,1,1199.20,580,695534.22
+Michael D. Antonovich,michaeldantonovich,Republican,2016,State Senate District 25,159014.0,N,0,1296.19,1406,1822447.13
+Henry Stern,henrystern,Democratic,2016,State Senate District 27,218655.0,N,1,1358.27,2154,2925714.95
+Steve Fazio,stevefazio,Republican,2016,State Senate District 27,172827.0,N,0,1506.36,897,1351208.79
+Ling Ling Chang,linglingchang,Republican,2016,State Senate District 29,157732.0,N,0,2948.69,1144,3373302.92
+Bill Dodd,billdodd,Democratic,2016,State Senate District 3,207927.0,N,1,1219.56,2099,2559861.05
+Richard Reed,richardreed,Republican,2016,State Senate District 31,109238.0,N,0,549.60,41,22533.71
+Ricardo Lara,ricardolara,Democratic,2016,State Senate District 33,177971.0,Y,1,1511.95,951,1437865.27
+Steven Bradford,stevenbradford,Democratic,2016,State Senate District 35,135353.0,N,1,1351.20,707,955297.40
+John Renison,johnrenison,Republican,2016,State Senate District 39,155053.0,N,0,1204.11,70,84287.50
+Cathleen Galgiani,cathleengalgiani,Democratic,2016,State Senate District 5,174847.0,Y,1,1787.86,1034,1848650.12
+Nancy Skinner,nancyskinner,Democratic,2016,State Senate District 9,236133.0,N,1,686.51,2544,1746494.12
