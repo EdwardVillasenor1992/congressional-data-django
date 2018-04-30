@@ -1,21 +1,23 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Switch } from 'react-router';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import App from './components/App';
 import AvgDonations from './components/AvgDonations';
 
-import createBrowserHistory from 'history/createBrowserHistory'
-const newHistory = createBrowserHistory();
-
 const node = document.querySelector('#app');
 
 let routes = (
-    <Router history={newHistory}>
-        <Switch>
-           <Route exact path="/" component={App} />
-           <Route path="/avg-donations" component={AvgDonations} />
-        </Switch>
-     </Router>
+    <Router>
+      <div>
+        <ul>
+          <li><Link to="/">Main Page</Link></li>
+          <li><Link to="/average">Average Donation per Win</Link></li>
+        </ul>        
+        <hr />
+        <Route exact path="/" component={App} />
+        <Route path="/average" component={AvgDonations} />
+      </div>
+    </Router>
 );
 render(routes, node);
