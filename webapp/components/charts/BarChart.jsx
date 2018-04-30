@@ -48,7 +48,6 @@ class BarChart extends Component {
 
         const yAxis = g.append('g')
         .attr('transform', `translate(${margin.left},0)`)
-        .attr('stroke', '#ffff')
         .call(axisLeft(y));
 
         labels = yAxis.selectAll('g').nodes();
@@ -63,7 +62,7 @@ class BarChart extends Component {
             .attr('x', 9)
             .attr('y', 0)
             .attr('dy', '.35em')
-            .attr('transform', 'rotate(80)')
+            .attr('transform', 'rotate(90)')
             .style('text-anchor', 'start');
 
         g.append('g')

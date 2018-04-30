@@ -34,27 +34,35 @@ class ColumnChart extends Component {
             .padding(0.1);
         x.domain(data.map(d => d[xKey]));
 
+        // define element to obtain label size for setting margin on x axis
         const xAxis = g.append('g')
         .attr('transform', `translate(0, ${height - margin.bottom})`)
         .call(axisBottom(x));
 
+        // append label
         var labels = xAxis.selectAll('g').nodes();
         const marginBottom = max(labels, label => label.getBBox().width);
+
+        // set margins
         margin.bottom = marginBottom + 10;
 
         const y = scaleLinear()
             .range([height - margin.bottom, margin.top]);
         y.domain([0, max(data, d => +d[yKey])]).nice();
 
+        // define element to obtain label size for setting margin on x axis
         const yAxis = g.append('g')
         .attr('transform', `translate(${margin.left},0)`)
         .call(axisLeft(y));
 
+        // append label
         labels = yAxis.selectAll('g').nodes();
         const marginLeft = max(labels, label => label.getBBox().width);
 
+        // set margin
         margin.left = marginLeft + 10;
 
+        // reset the range and domain of the x-axis
         x = scaleBand()
             .range([margin.left, width - margin.right])
             .padding(0.1);
@@ -68,13 +76,12 @@ class ColumnChart extends Component {
             .attr('x', 9)
             .attr('y', 0)
             .attr('dy', '.35em')
-            .attr('transform', 'rotate(80)')
+            .attr('transform', 'rotate(90)')
             .style('text-anchor', 'start');
 
         g.append('g')
             .attr('transform', `translate(${margin.left},0)`)
             .call(axisLeft(y));
-
 
         g.selectAll()
             .data(data)
