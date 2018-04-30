@@ -32,11 +32,14 @@ class BarChart extends Component {
             .range([0, width - margin.right]);
         x.domain([0, max(data, d => +d[yKey])]).nice();
 
+        // define element to obtain label size for setting margin on x axis
         const xAxis = g.append('g')
         .attr('transform', `translate(0, ${height - margin.bottom})`)
         .call(axisBottom(x));
 
+        // append label
         var labels = xAxis.selectAll('g').nodes();
+        // set margin
         const marginBottom = max(labels, label => label.getBBox().width);
         margin.bottom = marginBottom;
 
@@ -46,11 +49,14 @@ class BarChart extends Component {
 
         y.domain(data.map(d => d[xKey]));
 
+        // define element to obtain label size for setting margin on y axis
         const yAxis = g.append('g')
         .attr('transform', `translate(${margin.left},0)`)
         .call(axisLeft(y));
 
+        // append labels
         labels = yAxis.selectAll('g').nodes();
+	// set margin
         const marginLeft = max(labels, label => label.getBBox().width);
         margin.left = marginLeft;
 

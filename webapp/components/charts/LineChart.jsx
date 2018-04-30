@@ -51,7 +51,7 @@ class LineChart extends Component {
 
         y.domain([0, max(data, d => +d[yKey])]).nice();
 
-        // define element to obtain label size for setting margin on x axis
+        // define element to obtain label size for setting margin on y axis
         const yAxis = g.append('g')
         .attr('transform', `translate(${margin.left},0)`)
         .call(axisLeft(y));
