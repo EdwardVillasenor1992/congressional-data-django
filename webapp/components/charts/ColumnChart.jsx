@@ -77,7 +77,7 @@ class ColumnChart extends Component {
     createChart() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
         // Negative margins, will be changed later
-        var margin = {top: 20, right: 0, bottom: this.createBottomMargin(), left: this.createLeftMargin()};
+        const margin = {top: 20, right: 0, bottom: this.createBottomMargin(), left: this.createLeftMargin()};
 
         // Append initial group element using a reference to the svg DOM node.
         const g = select(this.svg).append('g');
