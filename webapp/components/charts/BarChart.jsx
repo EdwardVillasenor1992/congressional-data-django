@@ -9,6 +9,8 @@ class BarChart extends Component {
     constructor() {
         super();
         this.createChart = this.createChart.bind(this);
+        this.createLeftMargin = this.createLeftMargin.bind(this);
+        this.createBottomMargin = this.createBottomMargin.bind(this);
     }
 
     componentDidMount() {
@@ -20,29 +22,12 @@ class BarChart extends Component {
         this.createChart();
     }
 
-    // Horizontal Oreintation Chart
-    createChart() {
+    // Create the left margin dynamically
+    createLeftMargin() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
-        // Negative margins, will be changed later
-        var margin = {top: 20, right: 0, bottom: -10, left: -10};
         // Append initial group element using a reference to the svg DOM node.
         const g = select(this.svg).append('g');
-
-        const x = scaleLinear()
-            .range([0, width - margin.right]);
-        x.domain([0, max(data, d => +d[yKey])]).nice();
-
-        // define element to obtain label size for setting margin on x axis
-        const xAxis = g.append('g')
-        .attr('transform', `translate(0, ${height - margin.bottom})`)
-        .call(axisBottom(x));
-
-        // append label
-        var labels = xAxis.selectAll('g').nodes();
-        // set margin
-        const marginBottom = max(labels, label => label.getBBox().width);
-        margin.bottom = marginBottom;
-
+	const margin = {top: 20, right: 0, bottom: -10, left: -10};
         const y = scaleBand()
             .range([height - margin.bottom - margin.top, 0])
             .padding(0.1);
@@ -55,11 +40,53 @@ class BarChart extends Component {
         .call(axisLeft(y));
 
         // append labels
-        labels = yAxis.selectAll('g').nodes();
-	// set margin
+        const labels = yAxis.selectAll('g').nodes();
+        // set margin
         const marginLeft = max(labels, label => label.getBBox().width);
-        margin.left = marginLeft;
+        return marginLeft;
+    }
 
+    // create the bottom margin dynamically
+    createBottomMargin() {
+        const { width, height, xKey, yKey, barColor, data } = this.props;
+        // Append initial group element using a reference to the svg DOM node.
+        const g = select(this.svg).append('g');
+        const margin = {top: 20, right: 0, bottom: -10, left: -10};
+
+        const x = scaleLinear()
+            .range([0, width - margin.right]);
+        x.domain([0, max(data, d => +d[yKey])]).nice();
+
+        // define element to obtain label size for setting margin on x axis
+        const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        // append label
+        const labels = xAxis.selectAll('g').nodes();
+        // set margin
+        const marginBottom = max(labels, label => label.getBBox().width);
+        return marginBottom;
+    }
+
+    // Horizontal Oreintation Chart
+    createChart() {
+        const { width, height, xKey, yKey, barColor, data } = this.props;
+        const margin = {top: 20, right: 0, bottom: this.createBottomMargin(), left: this.createLeftMargin()};
+        // Append initial group element using a reference to the svg DOM node.
+        const g = select(this.svg).append('g');
+
+        const x = scaleLinear()
+            .range([0, width - margin.right]);
+
+        const y = scaleBand()
+            .range([height - margin.bottom - margin.top, 0])
+            .padding(0.1);
+
+        x.domain([0, max(data, d => +d[yKey])]).nice();
+        y.domain(data.map(d => d[xKey]));
+
+        // Add the X Axis
         g.append('g')
             .attr('transform', `translate(${margin.left}, ${height - margin.bottom - margin.top})`)
             .call(axisBottom(x)
@@ -71,6 +98,7 @@ class BarChart extends Component {
             .attr('transform', 'rotate(90)')
             .style('text-anchor', 'start');
 
+        // Add the Y Axis
         g.append('g')
             .attr('transform', `translate(${margin.left},0)`)
             .call(axisLeft(y));

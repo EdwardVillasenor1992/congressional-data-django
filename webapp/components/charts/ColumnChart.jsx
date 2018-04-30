@@ -9,6 +9,8 @@ class ColumnChart extends Component {
     constructor() {
         super();
         this.createChart = this.createChart.bind(this);
+        this.createLeftMargin = this.createLeftMargin.bind(this);
+        this.createBottomMargin = this.createBottomMargin.bind(this);
     }
 
     componentDidMount() {
@@ -20,31 +22,13 @@ class ColumnChart extends Component {
         this.createChart();
     }
 
-    // Vertical Oreintation Chart
-    createChart() {
+    //Dynamically create the left margin
+    createLeftMargin() {
         const { width, height, xKey, yKey, barColor, data } = this.props;
         // Negative margins, will be changed later
-        var margin = {top: 20, right: 0, bottom: -10, left: -10};
-
+        const margin = {top: 20, right: 0, bottom: -10, left: -10};
         // Append initial group element using a reference to the svg DOM node.
         const g = select(this.svg).append('g');
-
-        var x = scaleBand()
-            .range([margin.left, width - margin.right])
-            .padding(0.1);
-        x.domain(data.map(d => d[xKey]));
-
-        // define element to obtain label size for setting margin on x axis
-        const xAxis = g.append('g')
-        .attr('transform', `translate(0, ${height - margin.bottom})`)
-        .call(axisBottom(x));
-
-        // append label
-        var labels = xAxis.selectAll('g').nodes();
-        const marginBottom = max(labels, label => label.getBBox().width);
-
-        // set margins
-        margin.bottom = marginBottom + 10;
 
         const y = scaleLinear()
             .range([height - margin.bottom, margin.top]);
@@ -56,18 +40,59 @@ class ColumnChart extends Component {
         .call(axisLeft(y));
 
         // append label
-        labels = yAxis.selectAll('g').nodes();
+        const labels = yAxis.selectAll('g').nodes();
         const marginLeft = max(labels, label => label.getBBox().width);
 
         // set margin
-        margin.left = marginLeft + 10;
+        return marginLeft + 10;
+    }
 
-        // reset the range and domain of the x-axis
-        x = scaleBand()
+    // Dynamically create the bottom margin
+    createBottomMargin() {
+        const { width, height, xKey, yKey, barColor, data } = this.props;
+        // Negative margins, will be changed later
+        const margin = {top: 20, right: 0, bottom: -10, left: -10};
+        // Append initial group element using a reference to the svg DOM node.
+        const g = select(this.svg).append('g');
+
+        const x = scaleBand()
             .range([margin.left, width - margin.right])
             .padding(0.1);
         x.domain(data.map(d => d[xKey]));
 
+        // define element to obtain label size for setting margin on x axis
+        const xAxis = g.append('g')
+        .attr('transform', `translate(0, ${height - margin.bottom})`)
+        .call(axisBottom(x));
+
+        // append label
+        const labels = xAxis.selectAll('g').nodes();
+        const marginBottom = max(labels, label => label.getBBox().width);
+
+        // set margins
+        return marginBottom + 10;
+    }
+
+    // Vertical Oreintation Chart
+    createChart() {
+        const { width, height, xKey, yKey, barColor, data } = this.props;
+        // Negative margins, will be changed later
+        var margin = {top: 20, right: 0, bottom: this.createBottomMargin(), left: this.createLeftMargin()};
+
+        // Append initial group element using a reference to the svg DOM node.
+        const g = select(this.svg).append('g');
+
+        const x = scaleBand()
+            .range([margin.left, width - margin.right])
+            .padding(0.1);
+
+        const y = scaleLinear()
+            .range([height - margin.bottom, margin.top]);
+
+        x.domain(data.map(d => d[xKey]));
+        y.domain([0, max(data, d => +d[yKey])]).nice();
+
+        // Add X Axis
         g.append('g')
             .attr('transform', `translate(0,${height - margin.bottom})`)
             .call(axisBottom(x)
@@ -79,6 +104,7 @@ class ColumnChart extends Component {
             .attr('transform', 'rotate(90)')
             .style('text-anchor', 'start');
 
+        // Add Y Axis
         g.append('g')
             .attr('transform', `translate(${margin.left},0)`)
             .call(axisLeft(y));
