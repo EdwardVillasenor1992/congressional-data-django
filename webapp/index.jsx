@@ -10,11 +10,8 @@ const node = document.querySelector('#app');
 let routes = (
     <Router>
       <div>
-        <ul>
-          <li><Link to="/">Main Page</Link></li>
-          <li><Link to="/average">Average Donation per Win</Link></li>
-        </ul>        
-        <hr />
+        <Link to="/">Main Page | </Link>
+        <Link to="/average">Average Donation Per Win</Link>
         <Route exact path="/" component={App} />
         <Route path="/average" component={AvgDonations} />
       </div>
