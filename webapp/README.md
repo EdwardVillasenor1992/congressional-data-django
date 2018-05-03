@@ -17,6 +17,10 @@ Start dev server:
 
     npm run start_web:dev
 
+**Tip:** set `NODE_ENV=dev` to use mock data:
+
+    NODE_ENV=dev npm run start_web:dev
+
 **Tip:** bind to a different host by passing the `--host` flag:
 
     npm run start_web:dev -- --host 0.0.0.0
