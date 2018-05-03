@@ -24,6 +24,10 @@ class AvgDonations extends Component {
      * @return {undefined}
      */
     getElectionYear(year) {
+        /**
+         * TODO: define django and js changes to wire up avg donation data
+         * https://trello.com/c/le8Ks8FL/10-serve-avg-donation
+         */
     }
 
     /**
