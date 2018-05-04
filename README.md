@@ -132,6 +132,73 @@ GRANT ALL PRIVILEGES ON DATABASE congressionaldata TO <username>;
 
 At this point you should have your local postgres set up.
 
+
+#### Populate Local Database With Data from a CSV File
+**Note:**
+To copy data from a CSV file to a postgres database or copy data from a postgres database to a CSV file, you need to be logged into postgres through an account that has a Superuser role.
+
+The examples below will demonstrate how to create a schema and table for the average donations per candidate per election cycle. Any text within angle brackets (**<>**) may be replaced with whichever names necessary for your data.
+
+For most, just entering the following command will start your postgres cli tool in Superuser mode.
+```bash
+psql postgres
+```
+
+**Connect to the Database**
+To add a schema and tables to a database, you must first be connected to that database.
+
+```sql
+\connect <congressionaldata>
+```
+
+Next, we need to add a schema to the database.
+**Create Schema**
+```sql
+CREATE SCHEMA <donations>;
+```
+You will see **CREATE SCHEMA** printed if the schema is successfully created.
+
+**Create a Table in the Schema Just Created**
+This table will be different for different data sets.
+```sql
+CREATE TABLE donations.avg_per_candidate(
+cn TEXT NOT NULL,
+rcn_tacc TEXT NOT NULL,
+party_name TEXT NOT NULL,
+election_year TEXT NOT NULL,
+contest_name TEXT NOT NULL,
+total_votes REAL NOT NULL,
+incumbent_flag CHAR(1) NOT NULL,
+is_winner BOOLEAN NOT NULL,
+average_amount_per_contrib REAL NOT NULL,
+num_trans INT NOT NULL,
+total_contrib REAL NOT NULL);
+```
+You will see **CREATE TABLE** printed if the table is successfully created.
+
+**Copy Data from a CSV File**
+
+```sql
+COPY <donations.avg_per_candidate> from
+'<your/file/path>/congressional-data-django/avg_donation_received_by_the_candidate.csv'
+CSV HEADER;
+```
+You will see **COPY [number of records]** printed if the file is successfully copied.
+
+
+**Test New Database**
+To test that the data from the CSV file was saved to the database, you can perform any sql statement on the newly added table. An example is below.
+```sql
+SELECT * FROM <donations.avg_per_candidate>;
+```
+
+**Note:**
+If you are unable to access the schema created from a different postgres user, you will need to grant the user permission from your Superuser account.
+
+```sql
+GRANT USAGE ON SCHEMA <donations> TO <username>;
+```
+
 #### Configure Django
 
 **congresionaldata/settings/local.py**
