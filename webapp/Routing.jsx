@@ -51,7 +51,8 @@ class Header extends Component {
     <Nav>
         {this.state.links.map((link, i) =>
               <NavItem componentClass={Link}
-                 href={link.path} to={link.path}
+                href={link.path} 
+                to={link.path}
                 text={link.text}
                 isactive={link.isActive.toString()}
                 key={link.path}
