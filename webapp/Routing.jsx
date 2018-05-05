@@ -59,6 +59,31 @@ class Header extends Component {
             </div>
         );
     }
+<<<<<<< HEAD
+=======
+    this.setState({links: links});
+  }
+  render() {
+    return (
+      <div>
+            <Navbar inverse>
+    <Nav>
+        {this.state.links.map((link, i) =>
+              <NavItem componentClass={Link}
+                href={link.path} 
+                to={link.path}
+                text={link.text}
+                isactive={link.isActive.toString()}
+                key={link.path}
+                onClick={() => this.handleClick(i)}
+              >{link.text}</NavItem>
+              )}
+    </Nav>
+  </Navbar>
+</div>
+    );
+  }
+>>>>>>> 057a90abc936fb415e6d022a56104dbc1d60bb5b
 }
 const Routing = () => (
     <div>
