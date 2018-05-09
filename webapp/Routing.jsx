@@ -7,7 +7,6 @@ import AvgDonations from './components/AvgDonations';
 const Main = () => (
     <main>
         <Switch>
-            <Route exact path='/' component={App} />
             <Route exact path='/' component={App}/>
             <Route exact path='/average' component={AvgDonations} />
         </Switch>
